@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<UseGetThemeparks Context="result">
+    <ChildContent>
+        @foreach (var item in result.Themeparks)
+        {
+            <p>Name: @item.Name</p>
+            <p>Location: @item.Location</p>
+            <p>Description: @item.Description</p>
+            <p>Opening hours: @item.OpeningHours</p>
+            <p>Attractions: </p>
+            @foreach(var attraction in item.Attractions)
+            {
+                <ul>@attraction.Name - @attraction.Category - @attraction.Description</ul>
+            }
+            <img src="@item.ImageUrl" alt="@item.Name" width="200" height="200" />
+        }
+        
+        <br /> <br />
+    </ChildContent>
+    <ErrorContent>
+        Something went wrong... <br />
+        @result.First().Message;
+    </ErrorContent>
+    <LoadingContent>
+        Loading...
+    </LoadingContent>
+</UseGetThemeparks>

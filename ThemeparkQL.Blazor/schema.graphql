@@ -1,0 +1,39 @@
+schema {
+  query: Query
+}
+
+type Query {
+  themeparks: [Themepark!]!
+  themepark(id: UUID!): Themepark
+  attractions: [Attraction!]!
+  attraction(id: UUID!): Attraction
+}
+
+scalar UUID
+
+type Themepark {
+  id: UUID!
+  name: String!
+  location: String!
+  description: String!
+  imageUrl: String!
+  openingHours: String!
+  attractions: [Attraction!]!
+}
+
+type Attraction {
+  id: UUID!
+  name: String!
+  description: String!
+  category: AttractionCategory!
+  minHeight: Float!
+  imageUrl: String!
+  themepark: Themepark!
+}
+
+enum AttractionCategory {
+  ROLLER_COASTER
+  DARK_RIDE
+  WATER_RIDE
+  OTHER
+}

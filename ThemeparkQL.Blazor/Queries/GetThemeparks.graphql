@@ -1,0 +1,18 @@
+﻿query GetThemeparks {
+    themeparks {
+        id,
+        name,
+        location,
+        description,
+        imageUrl,
+        openingHours,
+        attractions {
+            id,
+            name,
+            description,
+            category,
+            minHeight,
+            imageUrl
+        }
+    }
+}

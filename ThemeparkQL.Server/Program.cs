@@ -12,8 +12,20 @@ builder.Services
     .RegisterDbContext<ApplicationDbContext>()
     .AddQueryType<Query>();
 
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowAll", builder =>
+    {
+        builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 app.MapGraphQL();
+app.UseCors("AllowAll");
 
 app.Run();
