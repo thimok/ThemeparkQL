@@ -1,0 +1,18 @@
+﻿query GetThemepark($id: UUID!) {
+    themepark(id: $id) {
+        id,
+        name,
+        location,
+        description,
+        imageUrl,
+        openingHours,
+        attractions {
+            id,
+            name,
+            description,
+            category,
+            minHeight,
+            imageUrl
+        }
+    }
+}

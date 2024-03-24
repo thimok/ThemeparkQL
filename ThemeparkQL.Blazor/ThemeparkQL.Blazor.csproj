@@ -19,4 +19,10 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <GraphQL Update="Queries\GetThemepark.graphql">
+        <Generator>MSBuild:GenerateGraphQLCode</Generator>
+      </GraphQL>
+    </ItemGroup>
+
 </Project>

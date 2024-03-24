@@ -26,3 +26,12 @@
         Loading...
     </LoadingContent>
 </UseGetThemeparks>
+
+<UseGetThemepark Context="result" Id="@Guid.Parse("a15c497a-6217-41c9-86cf-cd2dba67d4b0")">
+    <p>@result.Themepark?.Name</p>
+    <p>Attractions:</p>
+    @foreach (var attraction in result.Themepark?.Attractions)
+    {
+        <ul>@attraction.Name - @attraction.Category - @attraction.Description</ul>
+    }
+</UseGetThemepark>
